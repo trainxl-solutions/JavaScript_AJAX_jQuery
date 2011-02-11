@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de" >
+  <head>
+      <!--
+      /** @author Axel Duerkop
+        * @license http://creativecommons.org/licenses/by/3.0/de/
+        * @copyright 2011 Axel Duerkop, trainXL, http://trainxl.de */
+      -->
+    <title>Eindimensionales Array mit for-Schleife auslesen</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+      /*
+          Nach dem Erstellen eines neuen Arrays und der Zuweisung
+          von Werten für die einzelnen Speicherplaetze
+          werden diese der Reihe nach wieder ausgelesen.
+          Dazu verwenden wir eine for-Schleife
+      */
+
+      var woche = new Array();
+
+      woche[0] = "Montag";
+      woche[1] = "Dienstag";
+      woche[2] = "Mittwoch";
+      woche[3] = "Donnerstag";
+      woche[4] = "Freitag";
+      woche[5] = "Samstag";
+      woche[6] = "Sonntag";
+
+      // Anzahl der Speicherplaetze innerhalb des Arrays ermitteln
+      // mit der Objekteigenschaft length.
+
+      var wochentage = woche.length;
+
+      // Jetzt kommt die for-Schleife
+      // Sie soll so lange laufen, bis die Anzahl der Speicherplaetze
+      // bzw. der Wochentage im Array erreicht ist.
+
+      for (var i = 0; i < wochentage; i++) {
+        document.write(woche[i] + "<br />");  // woche[i] greift bei jedem
+                                              // Durchlauf der Schleife auf
+                                              // den naechsten Speicherplatz
+                                              // des Wochen-Arrays zu.
+                                              // Dadurch werden die Wochentage
+                                              // der Reihe nach ausgegeben.
+      }
+
+    </script>
+
+  </body>
+</html>

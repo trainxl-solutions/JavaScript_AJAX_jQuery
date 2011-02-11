@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de" >
+  <head>
+      <!--
+      /** @author Axel Duerkop
+        * @license http://creativecommons.org/licenses/by/3.0/de/
+        * @copyright 2011 Axel Duerkop, trainXL, http://trainxl.de */
+      -->
+      <title>while-Schleife mit if und break</title>
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+        <script type="text/javascript">
+
+            var zaehler = 0;
+            var versuche = 10;
+
+            while (zaehler < versuche) {
+
+              zaehler = zaehler + 1;
+              alert(zaehler + ". Versuch");
+
+              // Das Programm steigt mit break aus der Schleife
+              // aus, wenn der Zaehler den Wert 5 hat.
+              if (zaehler == 5) {
+                break;
+              }
+
+            }
+            alert("Ende des Programms");
+
+        </script>
+  </head>
+  <body>
+
+  </body>
+</html>

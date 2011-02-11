@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <!--
+      /** @author Axel Duerkop
+        * @license http://creativecommons.org/licenses/by/3.0/de/
+        * @copyright 2011 Axel Duerkop, trainXL, http://trainxl.de */
+      -->
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>create-Methoden</title>
+  <script type="text/javascript">
+
+    /*
+     * Die folgende Funktion erzeugt ein neues HTML-Element sowie einen Text
+     * und hängt beide in die bestehende Baumstruktur des Dokuments ein.
+     */
+    window.onload = function() {
+        // Erstellt einen neuen <p>-Knoten
+        var neuerAbsatz = document.createElement('p');
+
+        // Erstellt einen neuen Textknoten
+        var neuerText = document.createTextNode("Gute Erholung!");
+
+        // Der Textknoten wird dem <p>-Knoten angehängt.
+        neuerAbsatz.appendChild(neuerText);
+        // 
+        // Der neue Absatz, der jetzt aus dem <p>-Knoten und dem Text
+        // besteht, wird dem body angehängt.
+        document.body.appendChild(neuerAbsatz);
+    }
+  </script>
+
+  </head>
+  <body>
+    <div id="kasten">
+        <p id="absatz">Der Feierabend naht.</p>
+    </div>
+  </body>
+</html>
+

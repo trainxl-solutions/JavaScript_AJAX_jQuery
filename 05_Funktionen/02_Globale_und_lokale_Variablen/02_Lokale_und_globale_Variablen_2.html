@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de" >
+  <head>
+      <!--
+      /** @author Axel Duerkop
+        * @license http://creativecommons.org/licenses/by/3.0/de/
+        * @copyright 2011 Axel Duerkop, trainXL, http://trainxl.de */
+      -->
+    <title>Globale und lokale Variablen 2</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<script type="text/javascript">
+
+  /*
+       Bei der Arbeit mit Funktionen ist es wichtig zu beachten,
+       wie Variablen deklariert werden.
+       Man unterscheidet zwischen globalen und lokalen Variablen
+  */
+
+  // Variable außerhalb einer Funktion deklariert:
+  var hundehuette = "blau"; // Die Variable ist global verfuegbar, WEIL sie ausserhalb
+                              // einer Funktion deklariert wurde
+
+  function addiere() {
+
+    var x = 5;          // Durch die Deklaration mit var ist die
+                        // Variable nicht ausserhalb der Funktion verfuegbar
+    var y = 6;
+
+    // Ausgabe der Summe
+    alert(x + y);
+  }
+
+    // Aufruf der Funktion
+    addiere();
+
+
+
+    /*  ###########################################################
+        Beispiel zur Demonstration der "Sichtbarkeit" von Variablen
+        Man spricht auch von Reichweite oder Gueltigkeitsbereich
+        ###########################################################
+    */
+
+    function reichweite_sehen() {
+
+    // ### lokale ### Deklaration und Initalisierung von Variablen innerhalb der Funktion
+
+    alert("Globale Variable a, die ausserhalb global deklariert wurde: " + a);
+
+    a = 5;          // neue Wertzuweisung an die globale Variable a
+
+    // Wichtig!! Wird eine Variable innerhalb einer Funktion OHNE var deklariert,
+    // ist sie auch ausserhalb der Funktion sichtbar. Sie ist dann global.
+
+    var b = 9;      // Wertzuweisung an die lokale Variable b; lokal, weil mit var deklariert.
+
+    return a;       // Rueckgabe von a, jetzt mit dem Wert 5
+
+    }
+
+    // ################# Hauptprogramm #####################
+    // Deklaration und Wertzuweisung ausserhalb der Funktion an eine Variable
+    // mit demselben Namen
+
+    var a = 0;
+    // Aufruf der Funktion, Speicherung in der globalen Variablen guckstDu
+    var guckstDu = reichweite_sehen();
+
+    // Ausgabe: 5, kommt als Rueckgabewert aus der Funktion
+    alert("Rückgabewert von a aus der Funktion: " + guckstDu);
+    // Welchen Wert hat a jetzt?
+    alert("Wert von a nach dem Aufruf der Funktion: " + a);
+
+    // ??? Was muessen Sie veraendern, um zu erreichen, dass der Rueckgabewert von a aus
+    // der Funktion heraus immer noch 5 ist, der Wert der globalen Variablen a aber
+    // 0 bleibt?
+
+    // ??? Warum ist nach dieser Aenderung der Wert von a innerhalb der Funktion
+    // undefined?
+
+    /* #############################################################
+       Nehmen Sie sich die Zeit, hiermit ein wenig herumzuprobieren!
+       ############################################################# */
+
+
+
+</script>
+  </head>
+  <body>
+
+  </body>
+</html>

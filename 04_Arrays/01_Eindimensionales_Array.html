@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de" >
+  <head>
+      <!--
+      /** @author Axel Duerkop
+        * @license http://creativecommons.org/licenses/by/3.0/de/
+        * @copyright 2011 Axel Duerkop, trainXL, http://trainxl.de */
+      -->
+    <title>Eindimensionales Array</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+    <script type="text/javascript">
+
+      /*
+          Moeglichkeiten, ein Array zu erstellen
+      */
+
+      // #######################################
+      // erste Moeglichkeit
+
+      var wochentage = new Array();
+
+      wochentage[0] = "Montag";
+      wochentage[1] = "Dienstag";
+      wochentage[2] = "Mittwoch";
+      wochentage[3] = "Donnerstag";
+      wochentage[4] = "Freitag";
+      wochentage[5] = "Samstag";
+      wochentage[6] = "Sonntag";
+
+      // Die Position innerhalb eines Arrays wird ueber den so genannten
+      // Index angesprochen. DABEI BEGINNT DIE ZAEHLUNG BEI 0 (NULL) !!!
+
+      alert(wochentage[2]);
+
+      // #######################################
+      // zweite Moeglichkeit
+
+      var freunde = new Array ("Tick", "Trick", "Track");
+
+      alert(freunde[0]);
+
+      // #######################################
+      // dritte Moeglichkeit
+
+      var getraenke = ["Cola", "Fanta", "Sprite"];
+
+      alert(getraenke[2]);
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

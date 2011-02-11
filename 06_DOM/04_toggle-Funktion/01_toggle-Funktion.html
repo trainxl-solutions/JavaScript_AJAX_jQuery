@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de" >
+  <head>
+      <!--
+      /** @author Axel Duerkop
+        * @license http://creativecommons.org/licenses/by/3.0/de/
+        * @copyright 2011 Axel Duerkop, trainXL, http://trainxl.de */
+      -->
+      <title>Toggle-Funktion mit JavaScript</title>
+      <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+
+      <!-- Dieses Skript will zeigen, wie unaufdringliches ("unobstrusive") JavaScript heutzutage
+           eingesetzt wird. Dabei wird einem User, der JavaScript nicht einge-
+           schaltet hat, eine Seite ausgeliefert, der nicht anzusehen ist,
+           dass sie eigentlich mit JavaScript-Funktionalitäten ausgestattet ist.
+           Ist JavaScript hingegen aktiviert, werden die Verbesserungen ("enhancements")
+           sichtbar.
+           Das bedeutet in der Regel, dass zu Beginn des CSS und JavaScripts gewisse
+           Initialisierungen durchgeführt werden. -->
+
+      <style type="text/css">
+        body		{ font-family: Arial, Helvetica, sans-serif; }
+
+        /* Der zusätzliche Absatz wird eingeblendet, der Link dafür ausgeblendet. */
+        #mehr 		{ display: block; }
+        #morelink	{ display: none; }
+        a               { outline: none; }
+
+      </style>
+
+      <script type="text/javascript">
+
+          /**
+           * Initialisierung der betreffenden Elemente, wenn die Seite aufgerufen
+           * wird und JavaScript aktiviert ist.
+           *
+           * Das Konstrukt kann statt des Eventhandlers onload im <body>-Tag verwendet werden.
+           */
+          window.onload = function() {
+
+                var mehrAbsatz            = document.getElementById('mehr');
+                var moreLink		  = document.getElementById('morelink');
+
+                // Der zusätzliche Absatz wird ausgeblendet, der Link eingeblendet.
+                mehrAbsatz.style.display  = "none";
+                moreLink.style.display    = "inline";
+          }
+
+          function toggle(link) {
+
+            var mehrAbsatz = document.getElementById('mehr');
+
+            // Je nach gegenwärtigem Zustand werden Link und Absatz verändert.
+            if (mehrAbsatz.style.display != 'block') {
+                mehrAbsatz.style.display = "block";
+                link.innerHTML = "weniger lesen..."
+            } else {
+              mehrAbsatz.style.display = "none";
+              link.innerHTML = "mehr lesen..."
+            }
+          }
+      </script>
+
+  </head>
+
+<body>
+  <h1>Toggle-Funktion mit JavaScript</h1>
+  <p class="absatz">Lorem ipsum dolor sit amet consectetuer Ut quis mollis cursus Praesent. Integer venenatis facilisis Aliquam tincidunt tristique tellus quis nibh Phasellus Curabitur. Porta at mauris eleifend nulla arcu nibh dapibus ipsum pellentesque rutrum. Lacus Morbi Vivamus tempor lacinia et mi Integer et at urna. Integer ut elit tortor fames ridiculus sem Fusce habitasse nibh justo. Et odio Quisque enim vel tristique Nulla Ut malesuada.</p>
+  <p class="absatz" id="mehr">Cras In eu sem augue Pellentesque pellentesque lorem tincidunt est eros. Felis adipiscing libero morbi dignissim mattis velit in Vestibulum faucibus laoreet. Eu nibh pede euismod ipsum consequat nunc eget et leo Donec. Lobortis quis mauris tellus nibh porttitor ipsum pretium Phasellus adipiscing at. Morbi ut justo ligula feugiat dignissim Ut pretium sodales amet Integer. Velit malesuada molestie pede id vestibulum sem eros Mauris. </p>
+  <!-- Ein Klick auf den folgenden Link übergibt an die Funktion toggle() eine Referenz
+       auf sich selbst. Dadurch kann der Link innerhalb der Funktion angesprochen
+       und manipuliert werden. -->
+  <a id="morelink" href="#" onclick="toggle(this);">mehr lesen...</a>
+</body>
+</html>

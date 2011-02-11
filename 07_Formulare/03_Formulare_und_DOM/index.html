@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de" >
+  <head>
+      <!--
+      /** @author Axel Duerkop
+        * @license http://creativecommons.org/licenses/by/3.0/de/
+        * @copyright 2011 Axel Duerkop, trainXL, http://trainxl.de */
+      -->      
+    <title>Formularvalidierung</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="functions.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+<body>
+	<div id="wrapper">
+		<h1>Formularvalidierung mit<br />JavaScript</h1>
+		
+		<?php if (!empty($_POST)) { 
+			  /* Hier wuerde jetzt ZWINGEND nochmal eine Validierung
+			  	 der eingebenen Daten mit PHP erfolgen, weil UserInnen
+				 durch Abschalten von JavaScript die clientseitige 
+				 Validierung umgehen koennen! */
+		?>				
+		<p>Hallo <?php echo htmlspecialchars($_POST['firstname']); ?>, Du bist <?php echo htmlspecialchars($_POST['age']); ?> Jahre alt?</p>	
+		<p><a href="javascript:location.href='index.php'">Zurück</a></p>
+		
+		<?php } else { ?> 
+		<div id="errors"></div>
+		<br />
+		<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" id="contactform" name="contactform" onsubmit="return check_form();">
+			<label for="firstname">Vorname</label>
+			<input type="text" name="firstname" id="firstname" />
+			<label for="age">Alter</label>
+			<input type="text" name="age" id="age" maxlength="3" />
+			<p><input type="submit" value="Absenden" /></p>
+		</form>
+		<?php } ?>		
+	</div>
+</body>
+</html>

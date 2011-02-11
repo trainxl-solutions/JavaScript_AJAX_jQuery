@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de" >
+  <head>
+      <!--
+      /** @author Axel Duerkop
+        * @license http://creativecommons.org/licenses/by/3.0/de/
+        * @copyright 2011 Axel Duerkop, trainXL, http://trainxl.de */
+      -->
+      <title>String-Methoden</title>
+      <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+
+      <script type="text/javascript">
+
+        /*
+         * Strings werden in JavaScript auch als Objekte verwaltet,
+         * haben also dementsprechend Eigenschaften und Methoden.
+         * Hier stelle ich einige wenige von ihnen vor.
+         * Bitte selbststaendig Uebungen machen mit Hilfe der Referenz.
+         */
+
+        var aussage 		= "hotzen@plotz.ru";
+
+        /* indexOf() - Prueft auf das Vorkommen eines Strings innerhalb eines
+         * anderen Strings und liefert die Position zurueck, an der der gesuchte String
+         * gefunden wurde.
+         * Wichtig: Liefert -1 zurueck, wenn nichts gefunden wurde.
+         */
+
+        if (aussage.indexOf("@") < 0 || aussage.indexOf(".") < 0 ) {
+            alert("Keine valide Emailadresse!")
+        } else {
+            alert("Richtig!");
+        }
+
+
+        /* charAt(n) - Gibt das Zeichen an Position n zurueck. */
+
+        alert(aussage.charAt(2));
+
+
+        /* length, charAt() und indexOf() - Ein Dreamteam!
+         * Hier zeige ich eine Kombination dreier String-Methoden,
+         * mit deren Hilfe sich Formularvalidierungen durchfuehren
+         * lassen.
+         */
+
+        // Bezeichnet exakt die erlaubten Zeichen; so genannte Whitelist
+        var erlaubt			= "0123456789";
+        // Simuliert einen String, der bspw. durch in ein Formular eingegeben wurde.
+        var eingabe 		= "22761d";
+
+        // Ermittelt die Laenge des eingegeben Strings
+        var eingabeLaenge	= eingabe.length;
+
+        /* Eine Schleife nimmt sich jedes einzelne Zeichen des eingegeben
+         * Strings vor und prueft, ob dieses in der erlaubten Zeichenkette vorkommt.
+         */
+        for (var i = 0; i < eingabeLaenge; i++) {
+            if (erlaubt.indexOf(eingabe.charAt(i)) < 0) {
+                alert("Fehler!")
+            }
+        }
+      </script>
+  </head>
+<body>
+</body>
+</html>

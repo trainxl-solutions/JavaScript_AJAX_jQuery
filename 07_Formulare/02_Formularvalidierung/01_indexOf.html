@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <!--
+      /** @author Axel Duerkop
+        * @license http://creativecommons.org/licenses/by/3.0/de/
+        * @copyright 2011 Axel Duerkop, trainXL, http://trainxl.de */
+      -->
+    <title>Stringmethoden - indexOf()</title>
+    
+<script type="text/javascript">
+
+    // Prueft, ob ein Zeichen in einem String enthalten ist.
+    // indexOf() gibt die Position zurueck, an der das Zeichen 
+    // gefunden wurde.
+
+    function pruefen(zeichen) {
+
+        var erlaubteZeichen = "asdfghjkl";
+        
+        // Die Stringmethode indexOf() wird auf den String 
+        // erlaubteZeichen angewandt. Dabei wird als Parameter
+        // das eingebene Zeichen uebergeben.
+        // indexOf() liefert den Wert -1 zurueck, wenn das
+        // Zeichen nicht gefunden wurde.
+        var enthalten = erlaubteZeichen.indexOf(zeichen); 
+        
+        if (enthalten < 0) {
+            alert("Nicht erlaubt!");
+        }
+        else {
+            alert("Erlaubt! Steht an Stelle " + enthalten + ".");
+        }
+    }
+    // Hauptprogramm
+    var eingabe = prompt("Bitte geben Sie einen Buchstaben ein: ", "");
+    
+    // Aufruf der Funktion
+    pruefen(eingabe);
+
+</script>
+
+  </head>
+  <body>
+  </body>
+</html>

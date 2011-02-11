@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <!--
+      /** @author Axel Duerkop
+        * @license http://creativecommons.org/licenses/by/3.0/de/
+        * @copyright 2011 Axel Duerkop, trainXL, http://trainxl.de */
+      -->
+    <title>Einfache Formularvalidierung - Zeichen aus String pruefen</title>
+
+<script type="text/javascript">
+
+    /* Prinzip einer Formularvalidierung mit JavaScript
+     * Selbstverstaendlich muss das Script um die notwendigen
+     * Ausgaben zur Benutzerfuehrung und -information erweitert
+     * werden. Der User sollte wissen, was er/sie falsch gemacht hat.
+     */
+
+    function pruefen(){
+        // Legt eine Menge von Zeichen zugrunde, die VERBOTEN sind; ^ bedeutet NICHT
+        var zeichenVerboten = /[^0-9]/;
+        // ermittelt die Eingabe aus dem Formularfeld
+        var plzEingabe = document.eingabeformular.plz.value;
+
+        // Prueft die Eingabe auf das Vorhandensein nicht erlaubter Zeichen, also
+        // auf alles ausser 0-9
+        // Ausserdem kann ein leeres Eingabefeld oder eine unkorrekte PLZ-Laenge die
+        // Validierung vereiteln.
+        if (zeichenVerboten.test(plzEingabe) || plzEingabe == "" || plzEingabe.length != 5) {
+            return false;
+        }
+    }
+
+
+</script>
+
+  </head>
+  <body>
+    <!-- Wird das Formular abgeschickt, gehen die Daten ueber die Adresszeile an den
+         Server und werden dort in einem PHP-Script verarbeitet. Damit diese Weiterleitung
+         aber nur dann stattfindet, wenn alle Daten clientseitig korrekt eingegeben wurden,
+         wird das Abschicken an einen positiven Rueckgabewert der Funktion Pruefen()
+         gekoppelt. Trick, gut merken!
+         Angenommen, JavaScript ist deaktiviert, muss die Validierung serverseitig stattfinden,
+         was eh gut waere, das sich das vorliegende Formular auch speichern und faelschen liesse
+         um es anschliessend an den Server zu schicken.
+         Merke: JavaScript-Validierung von Formularen ist nur ein Komfort, um den Server nicht
+         zu belaestigen. Es ist aber unerlaesslich, auf der Serverseite noch mal zu validieren! -->
+    <form name="eingabeformular" id="eingabeformular" action="script-auf-dem-server.php" onsubmit="return pruefen();">
+        <input name="plz"   type="text"   value="" size="20" /><label> Postleitzahl</label><br />
+        <input name="los" type="submit" value="Auswerten" />
+    </form>
+  </body>
+</html>

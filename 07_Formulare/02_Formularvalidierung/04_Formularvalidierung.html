@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <!--
+      /** @author Axel Duerkop
+        * @license http://creativecommons.org/licenses/by/3.0/de/
+        * @copyright 2011 Axel Duerkop, trainXL, http://trainxl.de */
+      -->
+    <title>Einfache Formularvalidierung - Zeichen aus String pruefen</title>
+
+<script type="text/javascript">
+
+    /* Prinzip einer Formularvalidierung mit JavaScript
+     * Selbstverstaenndlich muss das Script um die notwendigen
+     * Ausgaben zur Benutzerfuehrung und -information erweitert
+     * werden. Der User sollte wissen, was er/sie falsch gemacht hat.
+     */
+
+
+    // Diese Funktion liesse sich auch mit der Methode isNaN() vereinfachen.
+    // Ist aber langweilig, und man lernt nicht so viel...
+    function pruefeZiffern() {
+        // Legt eine Menge von Zeichen zugrunde, die erlaubt sind
+        var ziffernErlaubt = "0123456789";
+        // ermittelt die Eingabe aus dem Formularfeld
+        var plzEingabe = document.eingabeformular.plz.value;
+
+        // Pruefen auf Vollstaendigkeit und korrekte Laenge der PLZ
+        if (plzEingabe == "" || plzEingabe.length != 5) {
+            return false;
+        }
+
+        // Vergleich, ob das aktuell ausgewaehlte Zeichen des Eingabestrings
+        // - (plz.Eingabe.charAt(i)) - Teil von ziffernErlaubt ist - indexOf()
+        // Sobald -1 zurueckgegeben wird, gibt die Funktion false an die aufrufende Stelle
+        // zurueck
+        for (var i = 0; i < plzEingabe.length; i++) {
+            if (ziffernErlaubt.indexOf(plzEingabe.charAt(i)) < 0)
+            return false;
+        }
+        // Wenn alle eingegeben Zeichen unter den erlaubten waren, wird true zurueck-
+        // gegeben
+        return true;
+    }
+
+    function pruefeEmail() {
+        var emailErlaubt = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.@_-";
+        var emailEingabe = document.eingabeformular.email.value;
+
+        // Pflichtfeld
+        if (emailEingabe == "") {
+            return false;
+        }
+
+        for (var i = 0; i < emailEingabe.length; i++) {
+            if (emailErlaubt.indexOf(emailEingabe.charAt(i)) < 0)
+            return false;
+        }
+
+        if (emailEingabe.indexOf("@") < 0) {
+            return false;
+        }
+
+        return true;
+    }
+
+
+    // Uebergeordnete Funktion, die die einzelnen Validierungen zusammenfasst.
+    function pruefen() {
+
+        // Aufruf der vorhandenen Validierungsfunktionen
+        var plz     = pruefeZiffern();
+        var email   = pruefeEmail();
+
+        // Es wird nur true insgesamt zurueckgeliefert, wenn alle Einzelfunktionen
+        // true zurueckgeliefert haben.
+        return plz && email;
+    }
+
+</script>
+
+  </head>
+  <body>
+    <!-- Wird das Formular abgeschickt, gehen die Daten ueber die Adresszeile an den
+         Server und werden dort in einem PHP-Script verarbeitet. Damit diese Weiterleitung
+         aber nur dann stattfindet, wenn alle Daten clientseitig korrekt eingegeben wurden,
+         wird das Abschicken an einen positiven Rueckgabewert der Funktion Validierung()
+         gekoppelt. Trick, gut merken!
+         Angenommen, JavaScript ist deaktiviert, muss die Validierung serverseitig stattfinden,
+         was eh gut waere, das sich das vorliegende Formular auch speichern und faelschen liesse
+         um es anschliessend an den Server zu schicken.
+         Merke: JavaScript-Validierung von Formularen ist nur ein Komfort, um den Server nicht
+         zu belaestigen. Es ist aber unerlaesslich, auf der Serverseite noch mal zu validieren! -->
+    <form name="eingabeformular" id="eingabeformular" action="script-auf-dem-server.php" onsubmit="return pruefen();">
+        <input name="plz"   type="text"   value="" size="20" /><label> Postleitzahl</label><br />
+        <input name="email" type="text"   value="" size="20" /><label> Email</label><br />
+        <input name="los" type="submit" value="Auswerten" />
+    </form>
+  </body>
+</html>

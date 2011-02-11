@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de" >
+  <head>
+      <!--
+      /** @author Axel Duerkop
+        * @license http://creativecommons.org/licenses/by/3.0/de/
+        * @copyright 2011 Axel Duerkop, trainXL, http://trainxl.de */
+      -->
+    <title>Globale und lokale Variablen 1</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<script type="text/javascript">
+
+    /*
+     * Deklarieren Sie eine Variable innerhalb einer Funktion mit dem
+     * Schlüsselwort var, ist diese Variable nur innerhalb der Funktion bekannt.
+     * Lassen Sie das Schlüsselwort weg, gilt die Variable innerhalb
+     * und außerhalb der Funktion.
+     *
+     * Überlegen Sie, welche Vor- und Nachteile sich aus diesem Verhalten
+     * ergeben!
+     */
+
+    // Definition der Funktion
+
+    function teste_reichweite() {
+
+        var z = 9;
+
+    }
+
+    // ################### Hauptprogramm ################
+    // Aufruf der zuvor definierten Funktion
+    teste_reichweite();
+
+    // Ausgabe des Wertes von z.
+    // Was kommt raus?
+    alert(z);
+
+    // Eben. z wurde innerhalb der Funktion durch das Schluesselwort
+    // var lokal deklariert. Ausserhalb der Funktion weiss man davon
+    // nichts. Daher gibt es einen Fehler beim Ausgeben des Wertes
+    // von z, weil z noch gar nicht definiert wurde.
+
+    // ### Deklarieren Sie z innerhalb der Funktion global, und
+    // ### testen Sie erneut das Programm!
+
+    // ### Experimentieren Sie und lesen Sie in der Online-Referenz
+    // ### über Funktionen.
+
+</script>
+  </head>
+  <body>
+
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de" >
+  <head>
+      <!--
+      /** @author Axel Duerkop
+        * @license http://creativecommons.org/licenses/by/3.0/de/
+        * @copyright 2011 Axel Duerkop, trainXL, http://trainxl.de */
+      -->
+    <title>Funktion mit zwei Parametern und Rechnung</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+    <script type="text/javascript">
+
+      /*
+          Sie koennen Funktionen auch Werte uebergeben, mit denen die
+          Funktion dann arbeitet.
+          Anschliessend gibt die Funktion einen Wert zurueck.
+      */
+
+      function rechnen(x, y) {
+
+        // Die Funktion liefert an die aufrufende Stelle zurueck,
+        // was die die Rechnung ergibt.
+
+        return x*y
+
+        // Wichtig: Alles, was nach dem return in einer Funktion
+        // folgt, wird nicht mehr ausgefuehrt! Mit return ist
+        // Schluss.
+      }
+
+      // Aufruf der Funktion innerhalb des weiteren Programmablaufs,
+      // Uebergabe zweier Parameter
+      // Besonderheit: Die Funktion wird mit einer Variablen aufgerufen,
+      // die nach dem return der Funktion den Rueckgabewert aufnimmt.
+
+      var ergebnis =  rechnen(20,5);
+
+      // Ausgabe des Rueckgabewertes aus der Funktion
+
+      alert(ergebnis);
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

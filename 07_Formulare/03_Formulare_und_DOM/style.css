@@ -1,0 +1,25 @@
+body {
+	margin: 50px 0 0 200px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#wrapper {
+	border: 5px solid #5c7fff;
+	padding: 50px;
+	width: 400px;
+	background: #ffc773;
+}
+
+label {
+	display: block;
+	
+}
+
+#errors {
+	color: red;
+	font-weight: bolder;
+}
+
+.error {
+	border: 2px solid red;
+}

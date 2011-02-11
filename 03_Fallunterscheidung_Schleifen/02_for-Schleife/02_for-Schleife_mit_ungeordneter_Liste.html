@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de" > 
+  <head>
+      <!--
+      /** @author Axel Duerkop
+        * @license http://creativecommons.org/licenses/by/3.0/de/
+        * @copyright 2011 Axel Duerkop, trainXL, http://trainxl.de */
+      -->
+      <title>for-Schleife mit ungeordneter Liste</title>
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  
+  <!-- Dieses Programm generiert eine ungeordnete Liste per JavaScript.
+       Dabei wird der User zu Beginn nach der Anzahl der Listeneintraege
+       gefragt.
+  -->
+  
+  <style type="text/css">
+
+      .liste {
+        color:red;
+      }
+  
+  </style>
+  
+  </head>
+
+  <body>
+
+      <script type="text/javascript">
+          <!--
+
+            // Der User soll eine Zahl eingeben
+            var zahl = prompt("Sag mir eine Zahl:", "");
+
+            document.write("<ul>");
+            // Die Schleife laeuft solange, wie die Zahl des Zaehlers
+            // kleiner ist als die Zahl, die der User eingeben hat.
+            for (var i = 0; i < zahl; i = i + 1) {
+               document.write('<li class="liste">Tier ' + (i+1) + '</li>');
+            }
+            document.write("</ul>");
+          //-->
+      </script>
+
+  </body>
+</html>

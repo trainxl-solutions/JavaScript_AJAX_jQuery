@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de" >
+  <head>
+      <!--
+      /** @author Axel Duerkop
+        * @license http://creativecommons.org/licenses/by/3.0/de/
+        * @copyright 2011 Axel Duerkop, trainXL, http://trainxl.de */
+      -->
+      <title>for-Schleife mit write()</title>
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+      <style type="text/css">
+
+        /* Ein bisschen CSS, das das dynamisch generierte HTML
+           aus dem unteren JavaScript-Abschnitt formatiert. */
+        .farbig {
+          color:red;
+        }
+
+      </style>
+
+  </head>
+    <body>
+        <script type="text/javascript">
+            /* Beachten Sie diese HTML-Kommentare, die helfen,
+             * das JavaScript vor dem Validator zu verbergen.
+             */
+            <!--
+            /*
+             * Zaehlervariable initialisieren fuer die Zahl, die der User
+             * eingeben soll. Die Typisierung der Variablen als Number
+             * bringt hier nicht viel, weil nach dem prompt()
+             * der Typ eh als String wieder vorliegt.
+             * Sie dient in einer dynamisch typisierten Sprache
+             * lediglich als Hinweis für beteiligte Menschen,
+             * welchen Datentyp die Variable im Script haben soll.
+             */
+
+            var i     = 0;
+            var zahl  = 0;
+
+            // Der User soll eine Zahl eingeben
+            zahl = prompt("Sag mir eine Zahl:", "");
+
+            // Die Schleife laeuft solange, wie die Zahl des Zaehlers
+            // kleiner ist als die Zahl, die der User eingeben hat.
+            for (i = 0; i < zahl; i = i + 1) {
+               document.write('<p class="farbig">JavaScript & AJAX<\/p>');
+            }
+
+            //-->
+        </script>
+    </body>
+</html>

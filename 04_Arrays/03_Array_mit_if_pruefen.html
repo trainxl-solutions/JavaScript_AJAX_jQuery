@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de" >
+  <head>
+      <!--
+      /** @author Axel Duerkop
+        * @license http://creativecommons.org/licenses/by/3.0/de/
+        * @copyright 2011 Axel Duerkop, trainXL, http://trainxl.de */
+      -->
+    <title>Array mit if prüfen</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<script type="text/javascript">
+
+  /*
+     Um die Benutzereingabe ein wenig flexibler zu gestalten,
+     werden mehrere Schreibweisen zugelassen. Diese werden zunaechst 
+     in einem Array zusammengefasst.
+     Ggf. wuerde man fuer diese Art von Flexibilitaet
+     Regulaere Ausdruecke verwenden
+     -> http://de.wikipedia.org/wiki/Regul%C3%A4re_Ausdr%C3%BCcke
+  */
+    
+  var tag = new Array();
+  
+  tag[0] = "Mittwoch";
+  tag[1] = "mittwoch";
+  tag[2] = "Mitwoch";
+  tag[3] = "mitwoch";
+  tag[4] = "Mtwoch";
+  tag[5] = "mtwoch";
+  tag[6] = "mtwch";
+  
+  // Die Laenge der Elemente in dem Array wird ermittelt
+  var laengeDesTagArrays = tag.length;
+  
+  // Benutzereingabe
+  var eingabe = prompt("Welcher Tag ist heute?", "");
+  
+  // Schleife, die die Eingabe bei jedem Schritt mit dem 
+  // jeweiligen Speicherplatz des Arrays vergleicht.
+  for (var i = 0; i < laengeDesTagArrays; i++) {
+    if (eingabe == tag[i]) {
+      alert("Richtig!");
+      // Fuer den Fall, dass eine Uebereinstimmung gefunden wird,
+      // springt das Programm sofort zum Ende der Schleife.
+      break;
+    }
+    // Wurde das Array bis zum letzten Speicherplatz ueberprueft
+    // und keine Uebereinstimmung gefunden, kann die Eingabe nur
+    // falsch gewesen sein.
+    // laengeDesTagArrays - 1 ergibt sich daraus, dass die Zaehlung
+    // der Elemente eines Arrays bei 0 beginnt, die Anzahl, die mit length
+    // ermittelt wird, aber von 1 bis n gezaehlt wird.
+    if (i == laengeDesTagArrays - 1) {
+      alert("Sie wussten es nicht!");
+    } 
+  } // Ende der Schleife
+  alert("Jetzt ist die Überprüfung zuende.");
+  
+  
+</script>
+  </head>
+  <body>
+
+  </body>
+</html>
